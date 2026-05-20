@@ -1,0 +1,27 @@
+{
+  "name": "agentic-essay-evaluator",
+  "version": "1.0.0",
+  "description": "This repo was created for the Google Cloud Rapid Agent Hackathon. It allows students to use agentic-AI to review their essays against their provided rubric and get feedback on what they can improve. Built with Astro, React, Tailwind, MongoDB, ExpressJS, and Google Cloud Platform (GCP).",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/shared"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:frontend": "npm run dev -w apps/frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brian-J-Wang/Agentic-Essay-Evaluator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Brian-J-Wang/Agentic-Essay-Evaluator/issues"
+  },
+  "homepage": "https://github.com/Brian-J-Wang/Agentic-Essay-Evaluator#readme"
+}
