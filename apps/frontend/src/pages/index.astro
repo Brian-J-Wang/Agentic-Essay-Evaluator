@@ -1,17 +1,47 @@
 ---
+import Layout from "../layouts/layout.astro";
+
 
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+	<section>
+		<header>
+			<nav>
+				<ul>
+					<a href="/app">
+						<li>Dashboard</li>
+					</a>
+					<a href="/">
+						<li>Sign In</li>
+					</a>
+					<a href="/">
+						<li>Sign Up</li>
+					</a>
+				</ul>
+			</nav>
+		</header>
+		
+		<h1>
+			Catch mistakes before submitting your essay
+		</h1>
+		<small>
+			Use an agentic instructor to review your essay and get a breakdown of how to improve it.
+		</small>
+	
+	</section>
+	<section id="features">
+		<h2>How It Works</h2>
+		<p>
+			We leverage a proprietary LLM service that specializes in 
+			reviewing and critiquing essays.
+		</p>
+		<p>
+			No more guessing whether your essay will be accepted or rejected.
+		</p>
+	</section>
+	<footer>
+		<small>Built with love and grit by</small>
+		<a href=""></a>
+		<a href=""></a>
+	</footer>
+</Layout>
