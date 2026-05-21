@@ -1,0 +1,6 @@
+.sidebar {
+	width: 250px;
+	height: 100vh;
+	background-color: var(--color-white);
+	border-right: 2px solid var(--color-neutral-100);
+}

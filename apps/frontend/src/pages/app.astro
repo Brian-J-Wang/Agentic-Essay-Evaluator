@@ -1,0 +1,8 @@
+---
+import AppLayout from "@layouts/appLayout.astro";
+import ReactApp from "@components/app/app";
+---
+
+<AppLayout>
+	<ReactApp client:only="react" />
+</AppLayout>
