@@ -1,17 +1,30 @@
+import { useContext } from "react";
 import AssignmentItem from "./assignmentItem/assignmentItem";
 import styles from "./assignmentList.module.css";
+import ModalContext from "@components/app/modal/modal.context";
+import NewAssignmentModal from "./newAssignmentModal/newAssignmentModal";
+import type { AssignmentListViewport } from "../views.types";
 
 const testAssignments = [
-	{ id: "1", name: "Essay 1", dateCreated: new Date(), status: "Completed" },
-	{ id: "2", name: "Essay 2", dateCreated: new Date(), status: "Completed" },
+	{ id: "1", name: "Essay 1", dateCreated: new Date(), status: [5, 3, 2] },
+	{ id: "2", name: "Essay 2", dateCreated: new Date(), status: [0, 0, 10] },
 ];
 
-const AssignmentList = () => {
+const AssignmentList: React.FC<AssignmentListViewport> = () => {
+	const modalContext = useContext(ModalContext);
+
+	const onNewAssignmentClick = () => {
+		modalContext.openModal(<NewAssignmentModal />);
+	};
+
 	return (
 		<div className={styles.viewport}>
 			<div className="flex justify-between">
 				<h1 className="text-3xl font-semibold">Assignments</h1>
-				<button className="cursor-pointer rounded-md bg-neutral-800 px-4 py-2 text-neutral-50">
+				<button
+					className="cursor-pointer rounded-md bg-neutral-800 px-4 py-2 text-neutral-50"
+					onClick={onNewAssignmentClick}
+				>
 					New Assignment
 				</button>
 			</div>

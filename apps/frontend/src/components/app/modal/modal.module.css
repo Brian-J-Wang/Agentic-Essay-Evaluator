@@ -1,0 +1,23 @@
+.modal {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(29, 29, 29, 0.3);
+	top: 0;
+	left: 0;
+	position: absolute;
+	display: flex;
+}
+
+.modal_hidden {
+	visibility: hidden;
+}
+
+.modal__container {
+	width: 480px;
+	height: 600px;
+	background: var(--color-neutral-50);
+	margin: auto auto;
+	border-radius: var(--radius-md);
+	display: flex;
+	flex-direction: column;
+}
