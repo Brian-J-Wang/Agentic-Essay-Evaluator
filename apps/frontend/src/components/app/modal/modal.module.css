@@ -14,10 +14,10 @@
 
 .modal__container {
 	width: 480px;
-	height: 600px;
-	background: var(--color-neutral-50);
+	background-color: var(--color-neutral-50);
 	margin: auto auto;
 	border-radius: var(--radius-md);
 	display: flex;
 	flex-direction: column;
+	padding: var(--spacing-md) var(--spacing-lg);
 }

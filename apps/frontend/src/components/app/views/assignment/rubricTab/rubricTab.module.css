@@ -1,0 +1,38 @@
+.rubricItem {
+	display: flex;
+	justify-content: space-between;
+	padding: var(--spacing-md) var(--spacing-lg);
+	background-color: var(--color-neutral-50);
+}
+
+.rubricItem__title {
+	font-weight: bold;
+	font-size: var(--text-xl);
+}
+
+.rubricItem__conditions {
+	display: flex;
+	gap: var(--spacing-md);
+	max-width: 600px;
+}
+
+.rubricItem__condition {
+	flex: 1;
+	padding: var(--spacing-md);
+}
+
+.rubricItem__condition_complete {
+	background-color: var(--color-green-200);
+}
+
+.rubricItem__condition_partial {
+	background-color: var(--color-orange-200);
+}
+
+.rubricItem__condition_incomplete {
+	background-color: var(--color-red-200);
+}
+
+.rubricItem__conditionTitle {
+	font-weight: bold;
+}
