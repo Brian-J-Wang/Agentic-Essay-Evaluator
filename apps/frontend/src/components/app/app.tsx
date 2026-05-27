@@ -1,18 +1,18 @@
 import { useEffect, useState, type ReactNode } from "react";
 import "../../styles/global.css";
 import styles from "./app.module.css";
-import Modal from "./modal/modal";
+import Modal from "./features/modal/modal";
 import SideBar from "./sidebar/sidebar";
-import ViewportContext from "./views/viewportContext";
-import UseViewport from "./views/useViewport";
-import ModalContext from "./modal/modal.context";
+import ViewportContext from "./viewport/viewportContext";
+import UseViewport from "./viewport/useViewport";
+import ModalContext from "./features/modal/modal.context";
 
 const App: React.FC = () => {
   const { Viewport, setViewport } = UseViewport();
   const [modal, setModal] = useState<ReactNode | null>(null);
 
-  const openModal = (view: ReactNode) => {
-    setModal(view);
+  const openModal = (modal: ReactNode) => {
+    setModal(modal);
   };
 
   const closeModal = () => {
