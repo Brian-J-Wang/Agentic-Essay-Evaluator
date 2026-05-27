@@ -1,7 +1,9 @@
 import { Router } from "express";
-import { addNewAssignment } from "./assignment.controller";
+import { addNewAssignment, getAssignments } from "./assignment.controller";
 
 const assignmentRoute = Router();
+
+assignmentRoute.get("/", getAssignments);
 
 assignmentRoute.post("/", addNewAssignment);
 

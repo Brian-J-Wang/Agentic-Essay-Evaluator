@@ -1,9 +1,7 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import assignmentRoute from "./assignment/assignment.route";
-
-dotenv.config();
+import { env } from "./config/env";
 
 const app = express();
 
@@ -13,6 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/assignment", assignmentRoute);
 
-app.listen(process.env.PORT, () => {
-	console.log(`Server started on port ${process.env.PORT}`);
+app.use("/ping", (req, res) => {
+  res.send({
+    res: "ok",
+  });
+});
+
+app.listen(env.PORT, env.HOST, () => {
+  console.log(`Server started on port http://${env.HOST}:${env.PORT}`);
 });
