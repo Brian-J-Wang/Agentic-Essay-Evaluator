@@ -4,7 +4,7 @@ import styles from "./assignmentList.module.css";
 import ModalContext from "@components/app/features/modal/modal.context";
 import NewAssignmentModal from "./newAssignmentModal/newAssignmentModal";
 import type { AssignmentListViewport } from "../views.types";
-import type { AssignmentItem } from "shared/src/types";
+import type { AssignmentItem } from "@brwwang/shared/src/types";
 import ViewportContext from "@components/app/viewport/viewportContext";
 
 const testAssignments: AssignmentItem[] = [

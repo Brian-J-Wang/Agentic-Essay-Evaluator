@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import "../../styles/global.css";
 import styles from "./app.module.css";
 import Modal from "./features/modal/modal";
-import SideBar from "./sidebar/sidebar";
+import SideBar from "./features/sidebar/sidebar";
 import ViewportContext from "./viewport/viewportContext";
 import UseViewport from "./viewport/useViewport";
 import ModalContext from "./features/modal/modal.context";
