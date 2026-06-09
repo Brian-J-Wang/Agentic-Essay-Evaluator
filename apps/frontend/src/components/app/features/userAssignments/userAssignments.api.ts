@@ -12,7 +12,8 @@ export const useUserAssignmentAPI = () => {
 	const [error, _setError] = useState(false);
 
 	useEffect(() => {
-		fetch(`${hostname}/assignment`, {
+		console.log(hostname);
+		fetch(`http://${hostname}/assignment`, {
 			method: "GET",
 		})
 			.then((res) => {
