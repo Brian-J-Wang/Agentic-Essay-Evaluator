@@ -1,6 +1,20 @@
 import z from "zod";
-import { AssignmentSchema, newAssignmentSchema } from "./assignment.schemas";
+import { newAssignmentSchema } from "./assignment.schemas";
 
-export type Assignment = z.infer<typeof AssignmentSchema>;
+export type Assignment = {
+	_id: string;
+	name: string;
+	rubric: {
+		desc: string;
+		criteria: {
+			desc: string;
+			performanceLevels: {
+				label: string;
+				desc: string;
+			}[];
+		}[];
+	};
+	essays: {}[];
+};
 
 export type NewAssignment = z.infer<typeof newAssignmentSchema>;

@@ -1,4 +1,4 @@
-import type { AssignmentItem } from "shared/src/types";
+import type { Assignment } from "@brwwang/shared/src/assignments/assignments.types";
 
 export type Viewport = {};
 
@@ -7,7 +7,7 @@ export type ViewportConfig =
 	| { type: "assignmentViewport"; props: AssignmentViewport };
 
 export type AssignmentViewport = Viewport & {
-	assignmentItem: AssignmentItem;
+	assignment: Assignment;
 };
 
 export type AssignmentListViewport = Viewport & {};

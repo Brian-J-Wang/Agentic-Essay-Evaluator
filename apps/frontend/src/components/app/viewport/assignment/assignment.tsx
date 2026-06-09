@@ -5,7 +5,7 @@ import EssayTab from "./essayTab/essayTab";
 import RubricTab from "./rubricTab/rubricTab";
 import ViewportContext from "../viewportContext";
 
-const Assignment: React.FC<AssignmentViewport> = ({ assignmentItem }) => {
+const Assignment: React.FC<AssignmentViewport> = ({ assignment }) => {
   const [selectedTab, setSelectedTab] = useState<"essays" | "rubric">("essays");
 
   const viewportContext = useContext(ViewportContext);
@@ -19,7 +19,7 @@ const Assignment: React.FC<AssignmentViewport> = ({ assignmentItem }) => {
         <button className={styles.assignment__back} onClick={handleReturnClick}>
           Go Back
         </button>
-        <h2 className={styles.assignment__essayInfo}>{assignmentItem.name}</h2>
+        <h2 className={styles.assignment__essayInfo}>{assignment.name}</h2>
         <div className={styles.assignment__tabs}>
           <button
             className={`${styles.assignment__tabButton} ${selectedTab == "essays" && styles.assignment__tabButton_selected}`}
@@ -36,10 +36,8 @@ const Assignment: React.FC<AssignmentViewport> = ({ assignmentItem }) => {
         </div>
       </div>
       <div className="flex flex-col py-10 gap-6">
-        {selectedTab == "essays" && <EssayTab essays={assignmentItem.essays} />}
-        {selectedTab == "rubric" && (
-          <RubricTab rubric={assignmentItem.rubric} />
-        )}
+        {selectedTab == "essays" && <EssayTab essays={assignment.essays} />}
+        {selectedTab == "rubric" && <RubricTab rubric={assignment.rubric} />}
       </div>
     </div>
   );

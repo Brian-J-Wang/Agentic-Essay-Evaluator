@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
 const criteriaSchema = new mongoose.Schema({
 	desc: {
@@ -32,6 +32,27 @@ const rubricSchema = new mongoose.Schema(
 	},
 );
 
+const essaySchema = new mongoose.Schema({
+	file: {
+		type: String,
+		required: true,
+	},
+	scoring: [
+		{
+			criterion: {
+				type: Types.ObjectId,
+			},
+			//performance level is only as high as the criterion's performance level length
+			performanceLevel: {
+				type: Number,
+			},
+			comments: {
+				type: String,
+			},
+		},
+	],
+});
+
 const assignmentSchema = new mongoose.Schema(
 	{
 		name: {
@@ -42,6 +63,11 @@ const assignmentSchema = new mongoose.Schema(
 			type: rubricSchema,
 			required: true,
 		},
+		eassys: [
+			{
+				type: essaySchema,
+			},
+		],
 	},
 	{
 		timestamps: true,

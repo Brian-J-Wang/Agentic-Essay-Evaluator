@@ -2,9 +2,11 @@ import type { Assignment } from "@brwwang/shared/src/assignments/assignments.typ
 import { useEffect, useState } from "react";
 import { env } from "src/config/env";
 
+console.log(env);
+
 const hostname = env.backendURL;
 
-export const useAssignmentAPI = () => {
+export const useUserAssignmentAPI = () => {
 	const [assignments, _setAssignments] = useState<Assignment[]>([]);
 	const [isloading, _setIsloading] = useState(true);
 	const [error, _setError] = useState(false);

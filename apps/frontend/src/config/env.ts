@@ -1,3 +1,3 @@
 export const env = {
-  backendURL: import.meta.env.VITE_BACKEND_URL,
+	backendURL: import.meta.env.PUBLIC_BACKEND_URL,
 };

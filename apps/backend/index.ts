@@ -2,8 +2,18 @@ import express from "express";
 import cors from "cors";
 import assignmentRoute from "./endpoints/assignment/assignment.route";
 import { env } from "./config/env";
+import mongoose from "mongoose";
 
 const app = express();
+
+mongoose
+	.connect(env.MONGO_URL)
+	.then(() => {
+		console.log("sucessfully connected to database");
+	})
+	.catch(() => {
+		console.log("unable to connect to database");
+	});
 
 app.use(cors());
 app.use(express.json());

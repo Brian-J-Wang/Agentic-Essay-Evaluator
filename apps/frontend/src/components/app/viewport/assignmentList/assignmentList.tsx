@@ -4,94 +4,22 @@ import styles from "./assignmentList.module.css";
 import ModalContext from "@components/app/features/modal/modal.context";
 import NewAssignmentModal from "./newAssignmentModal/newAssignmentModal";
 import type { AssignmentListViewport } from "../views.types";
-import type { AssignmentItem } from "@brwwang/shared/src/types";
+import type { Assignment } from "@brwwang/shared/src/assignments/assignments.types";
 import ViewportContext from "@components/app/viewport/viewportContext";
-
-const testAssignments: AssignmentItem[] = [
-  {
-    id: "1",
-    name: "Essay 1",
-    dateCreated: new Date(),
-    status: [5, 3, 2],
-    rubric: {
-      rubricItems: [
-        {
-          name: "Thesis Statement",
-          description: "A clear and arguable thesis statement",
-          completeCondition: "Thesis is clear, specific, and arguable",
-          partialCondition: "Thesis is present but vague or too broad",
-          incompleteCondition: "No thesis statement present",
-        },
-        {
-          name: "Evidence",
-          description: "Use of supporting evidence",
-          completeCondition: "Multiple relevant sources cited correctly",
-          partialCondition: "Some evidence provided but lacking depth",
-          incompleteCondition: "No evidence or sources provided",
-        },
-      ],
-    },
-    essays: [
-      {
-        id: "s1",
-        dateCreated: new Date(),
-        status: [1, 1, 0],
-        essaySummary:
-          "Thesis is present but lacks specificity. Evidence is cited but not analyzed in depth.",
-        actionItems: [
-          "Narrow thesis to a specific claim",
-          "Add analysis after each cited source",
-        ],
-      },
-      {
-        id: "s2",
-        dateCreated: new Date(),
-        status: [0, 1, 1],
-        essaySummary:
-          "Thesis is improved. Evidence analysis still needs more depth in body paragraphs 2 and 3.",
-        actionItems: ["Expand analysis in paragraphs 2 and 3"],
-      },
-    ],
-  },
-  {
-    id: "2",
-    name: "Essay 2",
-    dateCreated: new Date(),
-    status: [0, 0, 10],
-    rubric: {
-      rubricItems: [
-        {
-          name: "Grammar",
-          description: "Proper grammar and punctuation",
-          completeCondition: "No grammatical errors",
-          partialCondition: "Minor grammatical errors",
-          incompleteCondition: "Frequent grammatical errors",
-        },
-      ],
-    },
-    essays: [
-      {
-        id: "s3",
-        dateCreated: new Date(),
-        status: [0, 0, 1],
-        essaySummary: "All grammar criteria met. No issues found.",
-        actionItems: [],
-      },
-    ],
-  },
-];
+import { useUserAssignmentAPI } from "@components/app/features/userAssignments/userAssignments.api";
 
 const AssignmentList: React.FC<AssignmentListViewport> = () => {
+  const { assignments, isloading, error, api } = useUserAssignmentAPI();
   const modalContext = useContext(ModalContext);
   const onNewAssignmentClick = () => {
     modalContext.openModal(<NewAssignmentModal />);
   };
 
   const viewportContext = useContext(ViewportContext);
-  const handleAssignmentItemClick = (assignmentItem: AssignmentItem) => () => {
+  const handleAssignmentItemClick = (assignment: Assignment) => () => {
     viewportContext.setViewport({
       type: "assignmentViewport",
-      props: { assignmentItem },
+      props: { assignment },
     });
   };
 
@@ -115,11 +43,11 @@ const AssignmentList: React.FC<AssignmentListViewport> = () => {
           </tr>
         </thead>
         <tbody>
-          {testAssignments.map((assignmentItem) => (
+          {assignments.map((assignment) => (
             <AssignmentTableRow
-              key={assignmentItem.id}
-              assignmentItem={assignmentItem}
-              onClick={handleAssignmentItemClick(assignmentItem)}
+              key={assignment._id}
+              assignmentItem={assignment}
+              onClick={handleAssignmentItemClick(assignment)}
             />
           ))}
         </tbody>
