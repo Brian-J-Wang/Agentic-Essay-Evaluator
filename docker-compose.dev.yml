@@ -1,0 +1,45 @@
+services:
+  nginx: !reset null
+  frontend:
+    image: !reset null 
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+      target: development
+    expose: !reset
+    ports:
+      - "127.0.0.1:4321:4321"
+    develop:
+      watch:
+        - action: sync
+          path: "./apps/frontend"
+          target: "/app/apps/frontend"
+          ignore:
+              - ".astro"
+              - ".vscode"
+              - "node_modules"
+              - ".git"
+              - "README.md"
+        - action: restart
+          path: "./apps/astro-server/package.json"
+  backend:
+    image: !reset null
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+      target: development
+    expose: !reset
+    ports:
+      - "127.0.0.1:4000:4000"
+    develop:
+      watch:
+        - action: sync
+          path: "./apps/backend"
+          target: "/app"
+          ignore:
+            - "node_modules"
+            - ".git"
+            - "README.md"
+            - ".env"
+        - action: restart
+          path: "./apps/backend/package.json"

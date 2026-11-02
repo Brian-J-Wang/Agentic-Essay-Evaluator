@@ -1,0 +1,45 @@
+services:
+  nginx:
+    image: 1.28-alpine
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - "frontend"
+    networks:
+      - public
+
+  frontend:
+    image: ghcr.io/placeholder
+    expose: 
+      - "3000"
+    networks:
+      - public
+      - private
+  
+  backend:
+    image: ghcr.io/placeholder
+    expose:
+      - "4000"
+    networks:
+      - public
+      - private
+
+  mongodb:
+    image: mongo:8.0
+    expose:
+      - "27017"
+    volumes:
+      - mongo_data:/data/db
+    env_file:
+      - .env.mongo
+    networks:
+      - private
+
+networks:
+  public:
+  private:
+    internal: true
+
+volumes:
+    mongo_data:
