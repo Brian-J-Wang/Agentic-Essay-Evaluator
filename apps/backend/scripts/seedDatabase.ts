@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import { Assignments } from "../endpoints/assignment/assignment.schema";
 import { dummyAssignments } from "./dummyAssignments";
 
+console.log("Connecting to MongoDB at", env.MONGO_URL);
+
 mongoose
 	.connect(env.MONGO_URL)
 	.then(() => {

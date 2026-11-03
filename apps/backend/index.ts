@@ -6,14 +6,14 @@ import mongoose from "mongoose";
 
 const app = express();
 
-mongoose
-	.connect(env.MONGO_URL)
-	.then(() => {
-		console.log("sucessfully connected to database");
-	})
-	.catch(() => {
-		console.log("unable to connect to database");
-	});
+// mongoose
+// 	.connect(env.MONGO_URL)
+// 	.then(() => {
+// 		console.log("sucessfully connected to database");
+// 	})
+// 	.catch(() => {
+// 		console.log("unable to connect to database");
+// 	});
 
 app.use(cors());
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use("/assignment", assignmentRoute);
 
 app.use("/ping", (req, res) => {
 	res.send({
-		res: "ok",
+		res: "pong",
 	});
 });
 

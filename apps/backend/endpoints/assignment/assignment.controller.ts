@@ -8,11 +8,9 @@ export const addNewAssignment = (req: Request, res: Response) => {
 export const getAssignments = (req: Request, res: Response) => {
 	Assignments.find({})
 		.then((assignments) => {
-			console.log(assignments);
 			res.send(assignments);
 		})
 		.catch((err) => {
-			console.log(err);
 			res.status(404).send(err);
 		});
 };
